@@ -16,13 +16,9 @@ pipeline
                 }
             }
         }
-        stage('Run images') {
+        stage('Run Containers') {
             steps {
-                script {
-                    sh 'docker run -d -p 3000:3000 --name frontend frontend'
-                    sh 'docker run -d -p 5000:5000 --name backend backend'
-                    sh 'docker run -d -p 5433:5432 --name db -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=hackathon postgres'
-                }
+                sh 'docker-compose up -d'
             }
         }
     
