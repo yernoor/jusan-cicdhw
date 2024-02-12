@@ -1,6 +1,12 @@
 Jenkinsfile - jenkins pipeline развертывание через docker compose
+
+
 Jenkinsfile-test - jenkins pipeline проверка включения и остановка контейнеров docker
+
+
 Jenkinsfile2- jenkins pipeline развертывание без docker
+
+
 .github/docker-image.yml - github action pipeline
 
 environment to Postgres:
