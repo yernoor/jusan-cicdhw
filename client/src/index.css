@@ -1,0 +1,690 @@
+@import 'http://fonts.fontstorage.com/import/mplusrounded1c.css';
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif !important;
+}
+a {
+  text-decoration: none;
+  color: black;
+}
+.autorizationNavElemes {
+  display: flex;
+}
+.headerUserNav {
+  display: flex;
+
+  width: 50%;
+  justify-content: space-around;
+}
+.headerBtns {
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+}
+.field {
+  margin: 5px;
+}
+.main {
+  max-width: 1360px;
+  margin: 0 auto;
+}
+.mainAuth {
+  margin-top: 60px;
+  /* margin: 0 auto; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+}
+.fieldsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid black;
+  margin-top: 10px;
+  border-top: 1px solid black;
+  /* border-bottom: 1px solid black; */
+  margin-bottom: 10px;
+}
+
+.fieldsContex {
+  display: flex;
+  flex-wrap: wrap;
+
+  /* margin-top: 10px; */
+}
+.fieldAnsw {
+  display: block;
+  width: 100%;
+}
+
+.addBtn {
+  margin-top: 15px;
+  display: block;
+  width: 100%;
+}
+.checker {
+  width: 100%;
+  display: block;
+  margin-top: 5px;
+}
+
+.bg {
+  background-color: #edf2f7;
+  height: 100%;
+}
+.buttons {
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* justify-content: space-between; */
+}
+
+.loader {
+  position: absolute;
+  left: 45%;
+  top: 55%;
+  z-index: 11;
+}
+
+.fieldsForUpload {
+  width: 100%;
+}
+
+.mainPicture {
+  margin: 0 auto;
+  background-image: url('./components/logos/mainPagePicture.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 610px;
+  height: 610px;
+}
+
+.mainContainer {
+  /* background-color: #edf2f7; */
+  /* height: 100vh; */
+  display: flex;
+  flex-wrap: wrap;
+}
+.mainTextDescription {
+  margin-top: 12px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+}
+
+.formbtn {
+  /* background-image: url("../public/mainForText.png"); */
+  /* background-size: contain; */
+  /* background-repeat: no-repeat; */
+  /* width: 45%; */
+  margin: 70px auto;
+  padding: 20px;
+  padding-left: 0;
+  padding-bottom: 0;
+  width: 585px;
+  margin-bottom: 0;
+  /* height: 300px; */
+  position: relative;
+  /* align-items: center; */
+  flex-wrap: wrap;
+}
+.btnOnDesk > a {
+  /* margin: auto; */
+  text-decoration: none;
+  background-color: #fe6637;
+  border: 1px solid #fe6637;
+  padding: 15px;
+  border-radius: 10px;
+  color: #edf2f7;
+}
+.profileField {
+  border-top: 2px solid #fe5000;
+
+  width: 350px;
+}
+.profileFieldElement {
+  margin-top: 14px;
+  margin-bottom: 14px;
+}
+.profileButton {
+  width: 350px;
+}
+.formBtn {
+  display: flex;
+  background-color: #fe5000;
+  border-radius: 15px;
+
+  height: 70px;
+}
+.btnImg {
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50px;
+  padding: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-left: 10px;
+}
+.btnText {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 30px;
+  /* identical to box height */
+
+  color: #ffffff;
+  margin: auto;
+}
+.profilePageText {
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 28px;
+
+  color: #a3a3a3;
+}
+/* CSS */
+.button-5 {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #fe6637;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: system-ui, -apple-system, system-ui, 'Helvetica Neue', Helvetica,
+    Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin: 0;
+  min-height: 3rem;
+  padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.button-5:hover,
+.button-5:focus {
+  background-color: #fb8332;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.button-5:hover {
+  transform: translateY(-1px);
+}
+
+.button-5:active {
+  background-color: #c85000;
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+.autorizationNavElemes {
+  margin: 0 auto;
+  max-width: 1360px;
+  justify-content: space-between;
+  /* padding-left: 15px;
+  padding-right: 15px; */
+  padding: 40px;
+  /* background-color: #edf2f7; */
+}
+
+.mainText {
+  font-size: 32px;
+  font-weight: 300;
+  /* text-align: center; */
+}
+
+.mainTextTitle {
+  font-size: 48px;
+  font-weight: 800;
+  line-height: 71px;
+  text-transform: uppercase;
+}
+.mainTextTitle > span {
+  color: #fe5000;
+}
+.btnOnDesk {
+  margin-top: 15px;
+  text-align: center;
+}
+
+.motivImage {
+  background-image: url('./components/logos/bank-logo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 276px;
+  height: 331px;
+  margin: auto;
+  margin-left: 205px;
+  margin-right: 205px;
+}
+
+.mainMotivation {
+  margin-top: 115px;
+  /* background-color: #e3ddec; */
+  padding-bottom: 50px;
+}
+.motivTextTitle {
+  width: 600px;
+  font-weight: 800;
+  font-size: 40px;
+  margin: 0 auto;
+  margin-left: 0;
+  line-height: 59px;
+  text-transform: uppercase;
+}
+.motivTextTitle > span {
+  color: #fe5000;
+}
+.motivTextDiscrtiption {
+  width: 600px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #646464;
+  margin-top: 28px;
+  line-height: 30px;
+}
+.motivTextDiscrtiption > span {
+  display: block;
+}
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1360px;
+}
+
+.footerContainer {
+  margin: 0 auto;
+  max-width: 1360px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.FooterContainer {
+  margin: 0 auto;
+  max-width: 1360px;
+
+  flex-wrap: wrap;
+}
+.aboveFooter {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20px;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+  margin-top: 25px;
+  color: #c6c6c6;
+  justify-content: space-between;
+}
+.telephone::before {
+  content: url('./components/logos/phone.svg');
+  position: relative;
+  top: 7px;
+  left: -5px;
+}
+.email::before {
+  content: url('./components/logos/email.svg');
+  position: relative;
+  top: 7px;
+  left: -5px;
+}
+.phones {
+  width: 647px;
+  display: flex;
+  justify-content: space-between;
+}
+.socialMedais {
+  display: flex;
+  /* width: 70px; */
+  margin-left: auto;
+  /* float: right; */
+}
+.socialMedais > a {
+  padding-left: 10px;
+  /* display: block; */
+}
+.footer {
+  padding: 40px;
+  padding-top: 28px;
+  margin-top: 34px;
+  height: 160px;
+  background-color: black;
+}
+.footerLogo {
+  background-image: url('./components/logos/footerLogo.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 233px;
+  height: 40px;
+}
+.copyrights {
+  margin-top: 32px;
+  width: 273px;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 18px;
+
+  color: #ffffff;
+}
+
+.footerBtns {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  /* identical to box height */
+
+  color: #ffffff;
+}
+.footerNav {
+  display: flex;
+
+  width: 50%;
+  justify-content: space-around;
+}
+.adminPage {
+  /* background-color: #edf2f7; */
+  padding: 10px;
+  /* height: 70vh; */
+}
+.adminPanel {
+  margin: 0 auto;
+  width: 85%;
+  padding: 25px;
+  background-color: white;
+  box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, 0.3);
+}
+.adminPanelBody {
+  position: relative;
+}
+
+.candidate {
+  position: relative;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  /* box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.3); */
+  padding: 10px;
+  /* border-radius: 2px; */
+  border-bottom: 1px dashed black;
+}
+.candidateName {
+  text-align: start;
+}
+.candidateName::before {
+  content: 'ФИО: ';
+}
+.candidateIIN {
+  text-align: start;
+}
+.candidateIIN::before {
+  content: 'ИИН: ';
+}
+
+.candidateCity::before {
+  content: 'Адрес прописки: ';
+}
+
+.candidateEmail::before {
+  content: 'email: ';
+}
+
+.candidateCitizenship::before {
+  content: 'Гражданство: ';
+}
+
+.candidatePhone::before {
+  content: 'Телефон: ';
+}
+.candidateBtns {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.deleteBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.find {
+  position: relative;
+}
+.findElements {
+  position: absolute;
+  box-shadow: 1px 3px 3px 1px rgba(0, 0, 0, 0.3);
+  background-color: white;
+  z-index: 10;
+  /* padding: 5px; */
+}
+.findElement {
+  margin: 6px;
+  /* border-bottom: 1px dashed black; */
+  background-color: white;
+  /* padding: 50px; */
+}
+.seacrh {
+  margin-top: 10px;
+  /* width: 250px; */
+  color: black;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.invite {
+  margin-top: 10px;
+  /* width: 250px; */
+  width: 370px;
+  height: 40px;
+  color: black;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 5px;
+}
+.inviteBtn {
+  margin-top: 15px;
+  background-color: #fe5000;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  margin-left: 35px;
+}
+.createAccount {
+  display: flex;
+  flex-wrap: wrap;
+}
+.candidateBtns > button {
+  margin: 10px;
+}
+
+.developersInfo {
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+.teamLogo {
+  width: 250px;
+  margin: 0 auto;
+  margin-bottom: 50px;
+}
+.teamLogo > img {
+  width: 250px;
+  border: 3px solid #fe5000;
+}
+.developerPic > img {
+  border: 3px solid #fe5000;
+  height: 350px;
+  width: 250px;
+}
+.developers {
+  text-align: center;
+  color: black;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.developerInfo {
+  font-size: 16px;
+}
+.developer {
+  margin-bottom: 15px;
+}
+.developersPage {
+  background-color: #edf2f7;
+}
+
+.profilePage {
+  max-width: 1360px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 40px;
+}
+.profileButtons {
+  width: 350px;
+  display: flex;
+  flex-wrap: wrap;
+}
+.InvalidVaildation {
+  /* display: none; */
+  font-size: 12px;
+  color: red;
+}
+
+@media (max-width: 1024px) {
+  .invite {
+    width: 300px;
+  }
+  .autorizationNavElemes {
+    display: flex;
+    flex-wrap: wrap;
+    /* align-items: center; */
+    justify-content: center;
+  }
+  .headerUserNav > a {
+    width: 100%;
+  }
+  .mainPicture {
+    margin-top: 35px;
+    width: 400px;
+    height: 400px;
+  }
+  .mainText {
+    text-align: center;
+  }
+  .mainTextTitle {
+    font-size: 34px;
+    line-height: 38px;
+  }
+  .mainTextDescription {
+    font-size: 16px;
+  }
+  .mainAuth {
+    display: flex;
+    justify-content: center;
+  }
+  .motivImage {
+    margin: auto;
+  }
+
+  .motivTextTitle {
+    width: 380px;
+    margin-top: 35px;
+  }
+  .motivTextDiscrtiption {
+    width: 380px;
+  }
+  .mainMotivation {
+    margin-top: 40px;
+  }
+  .headerUserNav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 15px;
+    text-align: center;
+  }
+  .footerContainer {
+    justify-content: center;
+  }
+  .footerNav {
+    flex-wrap: wrap;
+    text-align: center;
+  }
+  .footerNav > a {
+    width: 100%;
+  }
+  .formbtn {
+    margin-top: 0;
+    padding: 0;
+  }
+  .motivText {
+    padding: 30px;
+    font-size: 24px;
+    margin: 0 auto;
+    padding: 0;
+  }
+  .aboveFooter {
+    font-size: 14px;
+  }
+  .socialMedais {
+    margin: 15px auto;
+  }
+  .buttons {
+    flex-wrap: wrap;
+  }
+  .buttons > button {
+    margin: 10px;
+    width: 100%;
+  }
+  .candidateBtns {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .candidateBtns > button {
+    margin: 10px;
+    width: 100%;
+  }
+  .footer {
+    height: 250px;
+    padding: 20px;
+  }
+  .profileButtons {
+    width: 330px;
+  }
+  .profileButton {
+    margin-top: 20px;
+  }
+  .profilePageText {
+    margin-top: 20px;
+  }
+  .profileField {
+    width: 320px;
+  }
+  .phones > a {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.formConfirmText {
+  font-size: 12px;
+}
+
+.formConfirm {
+  margin-bottom: 25px !important;
+  font-weight: bold;
+}
