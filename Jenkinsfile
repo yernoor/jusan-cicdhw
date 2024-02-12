@@ -10,8 +10,8 @@ pipeline
         stage('Build Images') {
             steps {
                 script {
-                    sh 'docker build -t frontend ./client -p 3000:3000'
-                    sh 'docker build -t backend ./server -p 5000:5000'
+                    sh 'docker build -t frontend ./client'
+                    sh 'docker build -t backend ./server'
                     
                 }
             }
