@@ -7,22 +7,23 @@ pipeline
                 git url: 'https://github.com/yernoor/jusan-cicdhw.git', branch: 'main'
             }
         }
-        // stage('Build Frontend') {
-        //     steps {
-        //         script {
-        //             docker.build('frontend', './client')
-        //         }
-        //     }
-        // }
-        // stage('Build Backend') {
-        //     steps {
-        //         script {
-        //             docker.build('backend', './server')
-        //         }
-        //     }
-        // }
-        stage('Publish Locally') {
-            steps([$class: 'DockerComposeBuilder', dockerComposeFile: 'docker-compose.yml', option: [$class: 'StartAllServices'], useCustomDockerComposeFile: true])
+        stage('Build Images') {
+            steps {
+                script {
+                    sh 'docker build -t frontend ./client -p 3000:3000'
+                    sh 'docker build -t backend ./server -p 5000:5000'
+                    
+                }
+            }
+        }
+        stage('Run images') {
+            steps {
+                script {
+                    sh 'docker run -d -p 3000:3000 --name frontend frontend'
+                    sh 'docker run -d -p 5000:5000 --name backend backend'
+                    sh 'docker run -d -p 5433:5432 --name db -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=postgres -e POSTGRES_DB=hackathon postgres'
+                }
+            }
         }
     
     }    
