@@ -1,0 +1,63 @@
+pipeline {
+    agent any
+    
+    environment {
+        JAVA_HOME = '/usr/bin/java'
+        MAVEN_HOME = '/etc/maven'
+        PATH = "$JAVA_HOME/bin:$MAVEN_HOME/bin:$PATH"
+    }
+    
+    stages {
+        stage('Git') {
+            steps {
+                git url: 'https://github.com/yernoor/jusan-cicdhw.git', branch: 'main'
+            }
+        }
+        stage('Build Client') {
+            steps {
+                dir('client') {
+                    sh 'npm install'
+                    sh 'npm run build'
+                }
+            }
+        }
+        
+        stage('Build Server') {
+            steps {
+                dir('server') {
+                    sh 'mvn clean package'
+                }
+            }
+        }
+
+        stage('Run Client') {
+            steps {
+                dir('client') {
+                    sh 'npm start'
+                }
+            }
+        }
+        
+        stage('Setup Database') {
+            steps {
+                sh 'docker run -d --name db -e POSTGRES_DB=hackathon \
+                -e POSTGRES_USER=postgres \
+                -e POSTGRES_PASSWORD=postgres -p 5433:5432 postgres'
+            }
+        }
+
+        stage('Run Server') {
+            environment {
+                SPRING_DATASOURCE_URL='jdbc:postgresql://db:5432/hackathon'
+                SPRING_DATASOURCE_USERNAME='postgres'
+                SPRING_DATASOURCE_PASSWORD='postgres'
+                SPRING_JPA_HIBERNATE_DDL_AUTO='update'
+            }
+            steps {
+                dir('server') {
+                    sh 'java -jar target/back-end-0.0.1-SNAPSHOT.jar'
+                }
+            }
+        }
+    }
+}

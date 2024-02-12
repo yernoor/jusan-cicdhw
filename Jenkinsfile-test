@@ -1,0 +1,22 @@
+pipeline {
+    agent any
+    stages {
+        stage('Test') {
+            steps {
+                script {
+                    sh 'docker ps'
+                }
+            }
+        }
+
+        stage('Cleanup') {
+            steps {
+                script {
+                    sh 'docker stop jusan-hw2-client-1 && docker rm jusan-hw2-client-1'
+                    sh 'docker stop jusan-hw2-server-1 && docker rm jusan-hw2-server-1'
+                    sh 'docker stop jusan-hw2-db-1 && docker rm jusan-hw2-db-1'
+                }
+            }
+        }
+    }
+}
