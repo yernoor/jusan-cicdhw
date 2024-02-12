@@ -9,7 +9,9 @@ pipeline
         }
         stage('Build Frontend') {
             steps {
-                docker.build('frontend', './client')
+                script {
+                    docker.build('frontend', './client')
+                }
             }
         }
         stage('Build Backend') {
