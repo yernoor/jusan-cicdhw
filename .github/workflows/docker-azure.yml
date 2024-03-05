@@ -41,8 +41,8 @@ jobs:
     - name: Create folder for backend
       run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "mkdir -p ~/backend"
 
-    - name: Create folder for frontend
-      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }} "mkdir -p ~/frontend"
+    #- name: Create folder for frontend
+    #  run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }} "mkdir -p ~/frontend"
 
     - name: Copy Backend to Azure Backend VM
       run: sshpass -p ${{ secrets.AZURE_PASSWORD }} scp -i ~/.ssh/id_rsa.pub -r server/* yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }}:~/backend
