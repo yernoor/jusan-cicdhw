@@ -19,11 +19,19 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    
-    - name: Login to Azure
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+    - name: install ssh keys
+      run: install -m 600 -D /dev/null ~/.ssh/id_rsa
+
+    - name: ssh private key
+      run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+
+    - name: add to known hosts
+      run: ssh-keyscan -p 22 -H ${{ env.AZURE_FRONTEND_IP_PUBLIC }}  > ~/.ssh/known_hosts
+
+    - name: add to known hosts
+      run: ssh-keyscan -p 22 -H ${{ env.AZURE_BACKEND_IP_PUBLIC }}  > ~/.ssh/known_hosts
+
     
     - name: Login to Azure Backend VM
       uses: appleboy/ssh-action@v1.0.3
