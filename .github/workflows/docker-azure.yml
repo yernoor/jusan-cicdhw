@@ -42,7 +42,7 @@ jobs:
       run: ssh-keyscan -p 22 -H ${{ env.AZURE_BACKEND_IP_PUBLIC }}  > ~/.ssh/known_hosts
 
     - name: Copy Backend to Azure Backend VM
-      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "mkdir project && cd /project && git clone git@github.com:yernoor/jusan-cicdhw.git ."
+      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "mkdir /project && cd /project && git clone git@github.com:yernoor/jusan-cicdhw.git ."
     
     - name: Run postgres on Azure Backend VM
       run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "docker run -d --name db -e POSTGRES_DB=hackathon -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5433:5432 postgres"
@@ -54,7 +54,7 @@ jobs:
       run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "docker ps -a"
 
     - name: Copy Frontend to Azure Frontend VM
-      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }} "mkdir project && cd /project && git clone git@github.com:yernoor/jusan-cicdhw.git ."
+      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }} "mkdir /project && cd /project && git clone git@github.com:yernoor/jusan-cicdhw.git ."
 
     - name: Start Frontend on Azure Frontend VM
       run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }} "docker build -t frontend /project/frontend && docker run -d -p 3000:3000 frontend"
