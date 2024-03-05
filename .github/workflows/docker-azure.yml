@@ -26,6 +26,9 @@ jobs:
     - name: ssh private key
       run: echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
 
+    - name: ssh public key
+      run: echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
+
     - name: add to known hosts
       run: ssh-keyscan -p 22 -H ${{ env.AZURE_FRONTEND_IP_PUBLIC }}  > ~/.ssh/known_hosts
 
