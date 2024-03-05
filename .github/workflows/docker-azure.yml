@@ -2,12 +2,9 @@ name: Docker Image CI to Azure
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "azure" ]
 
 env:
-    AZURE_USERNAME: yernoor
-    AZURE_FRONTEND_NAME: yernoorfrontend
-    AZURE_BACKEND_NAME: yernoorbackend
     AZURE_FRONTEND_IP_PUBLIC: 172.190.169.106
     AZURE_BACKEND_IP_PUBLIC: 172.190.169.95
 
