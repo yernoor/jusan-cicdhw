@@ -26,10 +26,18 @@ jobs:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
     
     - name: Login to Azure Backend VM
-      run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }}
+      uses: appleboy/ssh-action@v1.0.3
+      with: 
+        host: ${{ env.AZURE_BACKEND_IP_PUBLIC }}
+        username: yernoor
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Login to Azure Frontend VM
-      run: ssh -i ${{ secrets.SSH_PRIVATE_KEY }} yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }}
+      uses: appleboy/ssh-action@v1.0.3
+      with: 
+        host: ${{ env.AZURE_FRONTEND_IP_PUBLIC }}
+        username: yernoor
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Copy Backend to Azure Backend VM
       run: sshpass -p 'Singularity2022!' scp -r backend/* yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }}:/backend
