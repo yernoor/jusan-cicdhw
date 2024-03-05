@@ -29,6 +29,12 @@ jobs:
     - name: ssh public key
       run: echo "${{ secrets.SSH_PUBLIC_KEY }}" > ~/.ssh/id_rsa.pub
 
+    - name: edit ssh permissions
+      run: chmod 400 ~/.ssh/id_rsa
+    
+    - name: edit ssh permissions
+      run: chmod 400 ~/.ssh/id_rsa.pub
+
     - name: add to known hosts
       run: ssh-keyscan -p 22 -H ${{ env.AZURE_FRONTEND_IP_PUBLIC }}  > ~/.ssh/known_hosts
 
@@ -36,20 +42,20 @@ jobs:
       run: ssh-keyscan -p 22 -H ${{ env.AZURE_BACKEND_IP_PUBLIC }}  > ~/.ssh/known_hosts
 
     - name: Copy Backend to Azure Backend VM
-      run: scp -i ~/.ssh/id_rsa.pub -r backend/* yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }}:/backend
+      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} scp -i ~/.ssh/id_rsa.pub -r backend/* yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }}:/backend
     
     - name: Run postgres on Azure Backend VM
-      run: ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "docker run -d --name db -e POSTGRES_DB=hackathon -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5433:5432 postgres"
+      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "docker run -d --name db -e POSTGRES_DB=hackathon -e POSTGRES_USER=postgres -e POSTGRES_PASSWORD=postgres -p 5433:5432 postgres"
       
     - name: Start Backend on Azure Backend VM
-      run: ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "docker build -t backend /backend && docker run -d -p 5000:5000 backend"
+      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "docker build -t backend /backend && docker run -d -p 5000:5000 backend"
 
     - name: Show Container IP
-      run: ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "docker ps -a"
+      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_BACKEND_IP_PUBLIC }} "docker ps -a"
 
     - name: Copy Frontend to Azure Frontend VM
-      run: scp -i ~/.ssh/id_rsa.pub -r frontend/* yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }}:/frontend
+      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} scp -i ~/.ssh/id_rsa.pub -r frontend/* yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }}:/frontend
 
     - name: Start Frontend on Azure Frontend VM
-      run: ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }} "docker build -t frontend /frontend && docker run -d -p 3000:3000 frontend"
+      run: sshpass -p ${{ secrets.AZURE_PASSWORD }} ssh -i ~/.ssh/id_rsa.pub yernoor@${{ env.AZURE_FRONTEND_IP_PUBLIC }} "docker build -t frontend /frontend && docker run -d -p 3000:3000 frontend"
 
